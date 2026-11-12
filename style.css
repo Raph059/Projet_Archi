@@ -1,0 +1,113 @@
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f4f4f6;
+    color: #222;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 15px;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* Mode Veille Écoconception */
+body.veille {
+    background-color: #121212;
+    color: #888;
+}
+body.veille .carte {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+h1 { text-align: center; color: #3e2723; }
+body.veille h1 { color: #aaa; }
+
+.grille {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+.carte {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+}
+.ecran-lcd {
+    background-color: #1e272e;
+    color: #0be881;
+    font-family: monospace;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 1.05em;
+    line-height: 1.5;
+}
+.grille-boissons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+button {
+    cursor: pointer;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #fafafa;
+    font-size: 0.95em;
+    transition: all 0.15s;
+}
+button:hover { background: #eaeaea; }
+
+.btn-boisson {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+.btn-boisson.selectionne {
+    border: 2px solid #4e342e;
+    background-color: #efebe9;
+}
+.btn-piece {
+    background: #fff8e1;
+    border-color: #ffc107;
+    font-weight: bold;
+}
+.btn-commander {
+    width: 100%;
+    background: #4e342e;
+    color: white;
+    border: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.btn-commander:hover { background: #3e2723; }
+.btn-annuler {
+    background: #ffebee;
+    color: #c62828;
+    border-color: #ef9a9a;
+}
+.jauge {
+    background: #eee;
+    border-radius: 4px;
+    height: 12px;
+    margin: 5px 0 15px 0;
+    overflow: hidden;
+}
+.jauge-remplissage {
+    background: #2e7d32;
+    height: 100%;
+    transition: width 0.3s;
+}
+.badge-eco {
+    display: inline-block;
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+}

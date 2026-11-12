@@ -3,10 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>projet nouvelle archi</title>
+    <title>Distributeur Automatique</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <p>gros caca</p>
-    <p>je suis tro bo</p>
+
+    <h1>☕ Distributeur Automatique Connecté</h1>
+
+    <div class="grille">
+        <!-- COLONNE GAUCHE : Interface Client -->
+        <div class="carte">
+            <div class="ecran-lcd">
+                <div id="etat-ecran">ÉTAT : EN ATTENTE</div>
+                <div id="credit-ecran">CRÉDIT : 0.00 €</div>
+                <div id="msg-ecran">MESSAGE : Insérez votre monnaie et choisissez une boisson.</div>
+            </div>
+
+            <h3>1. Insérer des pièces</h3>
+            <div>
+                <button type="button" class="btn-piece" data-valeur="0.10">0.10 €</button>
+                <button type="button" class="btn-piece" data-valeur="0.20">0.20 €</button>
+                <button type="button" class="btn-piece" data-valeur="0.50">0.50 €</button>
+                <button type="button" class="btn-piece" data-valeur="1.00">1.00 €</button>
+                <button type="button" class="btn-piece" data-valeur="2.00">2.00 €</button>
+                <button type="button" id="btn-annuler" class="btn-annuler">Rendre la monnaie</button>
+            </div>
+
+            <h3>2. Choisir une boisson</h3>
+            <div class="grille-boissons">
+                <button type="button" class="btn-boisson" data-nom="Expresso" data-prix="1.00"><span>☕ Expresso</span> <span>1.00 €</span></button>
+                <button type="button" class="btn-boisson" data-nom="Café au lait" data-prix="1.30"><span>🥛 Café au lait</span> <span>1.30 €</span></button>
+                <button type="button" class="btn-boisson" data-nom="Chocolat chaud" data-prix="1.50"><span>🍫 Chocolat chaud</span> <span>1.50 €</span></button>
+                <button type="button" class="btn-boisson" data-nom="Thé menthe" data-prix="1.20"><span>🍵 Thé menthe</span> <span>1.20 €</span></button>
+            </div>
+
+            <h3>3. Options (Suppléments)</h3>
+            <div>
+                <label><input type="checkbox" class="option-sup" data-prix="0.10"> Sucre (+0.10 €)</label> &nbsp;&nbsp;
+                <label><input type="checkbox" class="option-sup" data-prix="0.20"> Supplément Lait (+0.20 €)</label> &nbsp;&nbsp;
+                <label><input type="checkbox" class="option-sup" data-prix="-0.10"> Ma propre tasse (-0.10 €)</label>
+            </div>
+
+            <button type="button" id="btn-commander" class="btn-commander">Commander la boisson</button>
+        </div>
+
+        <!-- COLONNE DROITE : Panneau Technicien & Écoconception -->
+        <div class="carte">
+            <h3>🔧 État des stocks</h3>
+            
+            <div>Eau (<span id="stock-eau">800</span> / 1000 ml)</div>
+            <div class="jauge"><div id="jauge-eau" class="jauge-remplissage" style="width: 80%;"></div></div>
+
+            <div>Grains de café (<span id="stock-cafe">300</span> / 500 g)</div>
+            <div class="jauge"><div id="jauge-cafe" class="jauge-remplissage" style="width: 60%;"></div></div>
+
+            <div>Gobelets (<span id="stock-gobelets">15</span> / 20)</div>
+            <div class="jauge"><div id="jauge-gobelets" class="jauge-remplissage" style="width: 75%;"></div></div>
+
+            <hr>
+            <h3>💰 Caisse (Rendu monnaie)</h3>
+            <p style="font-size: 0.9em; line-height: 1.6;">
+                2.00 € : <strong>5</strong> pièces<br>
+                1.00 € : <strong>10</strong> pièces<br>
+                0.50 € : <strong>10</strong> pièces<br>
+                0.20 € : <strong>15</strong> pièces<br>
+                0.10 € : <strong>20</strong> pièces
+            </p>
+            <button type="button" id="btn-recharger" style="width: 100%;">Recharger les stocks</button>
+
+            <hr>
+            <h3>🌱 Écoconception</h3>
+            <span id="badge-eco" class="badge-eco">Mode : Actif (120 W)</span>
+            <p style="font-size: 0.85em; color: #555;">
+                Passage automatique en veille (5 W) après 15s d'inactivité.
+            </p>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
 </body>
 </html>
